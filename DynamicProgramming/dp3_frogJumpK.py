@@ -1,11 +1,18 @@
 """
-https://takeuforward.org/data-structure/dynamic-programming-frog-jump-with-k-distances-dp-4/
+https://takeuforward.org/data-structure/dynamic-programming-frog-jump-with-k-
+distances-dp-4/
 
-A frog wants to climb a staircase with n steps. Given an integer array heights, where heights[i] contains the height of the ith step, and an integer k.
+A frog wants to climb a staircase with n steps. Given an integer array
+heights, where heights[i] contains the height of the ith step, and an
+integer k.
 
-To jump from the ith step to the jth step, the frog requires abs(heights[i] - heights[j]) energy, where abs() denotes the absolute difference. The frog can jump from the ith step to any step in the range [i + 1, i + k], provided it exists.
+To jump from the ith step to the jth step, the frog requires
+abs(heights[i] - heights[j]) energy, where abs() denotes the absolute
+difference. The frog can jump from the ith step to any step in the range
+[i + 1, i + k], provided it exists.
 
-Return the minimum amount of energy required by the frog to go from the 0th step to the (n-1)th step.
+Return the minimum amount of energy required by the frog to go from the
+0th step to the (n-1)th step.
 
 Examples:
 
@@ -36,7 +43,8 @@ def frogJumpK(heights, k):
         int: minimum energy required to reach the last step (index n-1)
 
     Complexity:
-        Time: O(n * k) — for each of n steps we consider up to k previous jumps
+        Time: O(n * k) — for each of n steps we consider up to k previous
+        jumps
         Space: O(n) for the dp array
     """
     n = len(heights)
@@ -55,7 +63,7 @@ def frogJumpK(heights, k):
         # j ranges from i-k up to i-1 (bounded by 0)
         for j in range(max(0, i - k), i):
             dp[i] = min(dp[i], dp[j] + abs(heights[i] - heights[j]))
-    print(dp)
+
     return dp[-1]
 
 
