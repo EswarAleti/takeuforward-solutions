@@ -111,11 +111,10 @@ def climbStairsInplace(n):
     # Initialize prev2 = ways(0), prev1 = ways(1)
     prev2, prev1 = 1, 1
 
-    # Iteratively compute ways(i) for i from 2 to n. Variable name is
-    # unused inside loop, so use an underscore to avoid B007.
-    for _ in range(2, n + 1):
+    # Iteratively compute ways(i) for i from 2 to n
+    for i in range(2, n + 1):
         ways = prev1 + prev2  # current ways based on previous two
-        # shift window: prev2 becomes previous (i-1), prev1 becomes current
+        # shift window: prev2 becomes previous (i-1), prev1 becomes current (i)
         prev2 = prev1
         prev1 = ways
 
