@@ -1,15 +1,17 @@
 """
 https://takeuforward.org/data-structure/dynamic-programming-frog-jump-dp-3/
 
-A frog wants to climb a staircase with n steps. Given an integer array heights, where heights[i]
-contains the height of the ith step.
+A frog wants to climb a staircase with n steps. Given an integer array heights,
+where heights[i] contains the height of the ith step.
 
-To jump from the ith step to the jth step, the frog requires abs(heights[i] - heights[j]) energy.
-The frog can jump either one or two steps at a time.
+To jump from the ith step to the jth step, the frog requires
+abs(heights[i] - heights[j]) energy. The frog can jump either one or two
+steps at a time.
 
 This module provides two implementations:
 - frogJump: DP using an array (O(n) time, O(n) space)
-- frogJumpInplace: space-optimized DP using two variables (O(n) time, O(1) space)
+- frogJumpInplace: space-optimized DP using two variables (O(n) time,
+  O(1) space)
 """
 
 
