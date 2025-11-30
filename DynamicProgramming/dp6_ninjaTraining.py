@@ -40,11 +40,17 @@ def ninjaTraining(matrix):
 
 
 # Quick examples / smoke tests
-print(ninjaTraining([[10, 40, 70], [20, 50, 80], [30, 60, 90]]))  # Expected: 210
-print(ninjaTraining([[70, 40, 10], [180, 20, 5], [200, 60, 30]]))  # Expected: 290
+print(ninjaTraining([[10, 40, 70], [20, 50, 80], [30, 60, 90]]))
+# Expected: 210
+print(ninjaTraining([[70, 40, 10], [180, 20, 5], [200, 60, 30]]))
+# Expected: 290
 print(ninjaTraining([[1, 2, 5], [3, 1, 1], [3, 3, 3]]))  # Output: 11
-print(ninjaTraining([[2, 1, 3], [3, 4, 6], [10, 1, 6], [8, 3, 7]]))  # Output: 25
+print(ninjaTraining([[2, 1, 3], [3, 4, 6], [10, 1, 6], [8, 3, 7]]))
+# Output: 25
 print(ninjaTraining([[5, 10, 15]]))  # Output: 15
-print(ninjaTraining([[50, 50, 50], [50, 50, 50], [50, 50, 50]]))  # Output: 150
-print(ninjaTraining([[10, 100, 1], [1, 50, 1], [50, 1, 50]]))  # Output: 151
-print(ninjaTraining([[1, 2, 3], [100, 1, 1], [1, 100, 1], [1, 1, 100]]))  # Output: 303
+print(ninjaTraining([[50, 50, 50], [50, 50, 50], [50, 50, 50]]))
+# Output: 150
+print(ninjaTraining([[10, 100, 1], [1, 50, 1], [50, 1, 50]]))
+# Output: 151
+print(ninjaTraining([[1, 2, 3], [100, 1, 1], [1, 100, 1], [1, 1, 100]]))
+# Output: 303
