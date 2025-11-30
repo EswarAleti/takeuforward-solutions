@@ -42,6 +42,7 @@ print(uniquePaths(3, 2))  # Output: 3
 print(uniquePaths(2, 4))  # Output: 4
 print(uniquePaths(3, 3))  # Output: 6
 print(uniquePaths(4, 4))  # Output: 20
+print(uniquePaths(5, 5))  # Output: 70
 
 
 def uniquePathsInplace(m, n):
@@ -75,3 +76,4 @@ print(uniquePathsInplace(3, 2))  # Output: 3
 print(uniquePathsInplace(2, 4))  # Output: 4
 print(uniquePathsInplace(3, 3))  # Output: 6
 print(uniquePathsInplace(4, 4))  # Output: 20
+print(uniquePaths(5, 5))  # Output: 70
