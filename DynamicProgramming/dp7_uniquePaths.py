@@ -42,3 +42,36 @@ print(uniquePaths(3, 2))  # Output: 3
 print(uniquePaths(2, 4))  # Output: 4
 print(uniquePaths(3, 3))  # Output: 6
 print(uniquePaths(4, 4))  # Output: 20
+
+
+def uniquePathsInplace(m, n):
+    """Return unique paths using O(n) space optimization.
+
+    Uses a 1D array instead of 2D by updating in-place.
+
+    Args:
+        m (int): number of rows
+        n (int): number of columns
+
+    Returns:
+        int: total unique paths from (0,0) to (m-1,n-1)
+
+    Complexity: Time O(m*n), Space O(n)
+    """
+    # dp[j] represents the number of ways to reach current row, column j
+    dp = [1] * n
+
+    # For each row after the first
+    for _ in range(1, m):
+        # For each column after the first, update with sum of top+left
+        for j in range(1, n):
+            dp[j] = dp[j] + dp[j - 1]
+
+    return dp[-1]
+
+
+print(uniquePathsInplace(2, 2))  # Output: 2
+print(uniquePathsInplace(3, 2))  # Output: 3
+print(uniquePathsInplace(2, 4))  # Output: 4
+print(uniquePathsInplace(3, 3))  # Output: 6
+print(uniquePathsInplace(4, 4))  # Output: 20
