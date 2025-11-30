@@ -59,11 +59,13 @@ def miniumTotalInplace(triangle):
     # Process each row starting from second
     for i in range(1, len(triangle)):
         for j in range(len(triangle[i])):
+            up = corner = float("inf")
             # Option 1: from position j in previous row
-            up = triangle[i - 1][j] if j < len(triangle[i - 1]) else float("inf")
+            if j < len(triangle[i - 1]):
+                up = triangle[i - 1][j]
             # Option 2: from position j-1 in previous row
-            corner = triangle[i - 1][j - 1] if j > 0 else float("inf")
-            # Update with minimum path sum
+            if j > 0:
+                corner = triangle[i - 1][j - 1]
             triangle[i][j] += min(up, corner)
 
     return min(triangle[-1])
