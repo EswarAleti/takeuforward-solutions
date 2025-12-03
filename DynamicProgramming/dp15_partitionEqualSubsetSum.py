@@ -25,23 +25,12 @@ def isSubsetSum(nums: List[int], target: int) -> bool:
 
     Complexity: Time O(n*target), Space O(n*target)
     """
-    n = len(nums)
-    # dp[i][j] = can we make sum j using nums[0..i]
-    dp = [[False] * (target + 1) for _ in range(n)]
-
-    for i in range(n):
-        for j in range(target + 1):
-            # Base case: sum 0 is always achievable
-            if j == 0:
-                dp[i][j] = True
-                continue
-            # Option 1: don't include nums[i]
-            dp[i][j] = dp[i - 1][j] if i > 0 else False
-            # Option 2: include nums[i] if possible
-            if nums[i] <= j:
-                prev = dp[i - 1][j - nums[i]] if i > 0 else j == nums[i]
-                dp[i][j] = dp[i][j] or prev
-    return dp[-1][-1]
+    dp = [False] * (target + 1)
+    dp[0] = True  # Base case: sum 0 is always achievable
+    for num in nums:
+        for j in range(target, num - 1, -1):
+            dp[j] = dp[j] or dp[j - num]
+    return dp[target]
 
 
 def canPartition(nums: List[int]) -> bool:
@@ -70,3 +59,22 @@ def canPartition(nums: List[int]) -> bool:
 # Quick examples
 print(canPartition([1, 5, 11, 5]))  # Output: True
 print(canPartition([1, 2, 3, 5]))  # Output: False
+
+
+def canPartitionInplace(nums):
+    total = sum(nums)
+    if total % 2 == 1:
+        return False
+    target = total // 2
+    dp = [False] * (target + 1)
+    dp[0] = True  # Base case: sum 0 is always achievable
+
+    for num in nums:
+        for j in range(target, num - 1, -1):
+            dp[j] = dp[j] or dp[j - num]
+    return dp[target]
+
+
+# Quick examples
+print(canPartitionInplace([1, 5, 11, 5]))  # Output: True
+print(canPartitionInplace([1, 2, 3, 5]))  # Output: False

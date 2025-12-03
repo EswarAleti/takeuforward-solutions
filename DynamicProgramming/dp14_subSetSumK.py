@@ -85,3 +85,36 @@ def isSubsetSumDP(arr, sum):
 print(isSubsetSumDP([3, 34, 4, 12, 5, 2], 9))  # Output: True
 print(isSubsetSumDP([3, 34, 4, 12, 5, 2], 30))  # Output: False
 print(isSubsetSumDP([1, 2, 3], 6))  # Output: True
+
+
+def isSubsetSum1D(nums, target):
+    """Check if subset with given sum exists using 1D DP array.
+
+    Space-optimized approach using a single 1D array. Traverses backwards
+    to avoid using updated values in the same iteration.
+
+    Args:
+        nums (List[int]): array of positive integers
+        target (int): target sum to find
+
+    Returns:
+        bool: True if subset with sum exists, False otherwise
+
+    Complexity: Time O(n*target), Space O(target)
+    """
+    # dp[t] = can we achieve sum t using elements processed so far
+    dp = [False] * (target + 1)
+    dp[0] = True  # sum 0 is always possible (empty subset)
+
+    for num in nums:
+        # Traverse backwards to avoid using updated values in current iter
+        for t in range(target, num - 1, -1):
+            dp[t] = dp[t] or dp[t - num]
+
+    return dp[target]
+
+
+# Quick examples
+print(isSubsetSum1D([3, 34, 4, 12, 5, 2], 9))  # Output: True
+print(isSubsetSum1D([3, 34, 4, 12, 5, 2], 30))  # Output: False
+print(isSubsetSum1D([1, 2, 3], 6))  # Output: True
