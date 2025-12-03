@@ -75,7 +75,8 @@ def isSubsetSumDP(arr, sum):
             dp[i][j] = dp[i - 1][j] if i > 0 else False
             # Option 2: include arr[i] if possible
             if arr[i] <= j:
-                dp[i][j] = dp[i][j] or (dp[i - 1][j - arr[i]] if i > 0 else j == arr[i])
+                prev = dp[i - 1][j - arr[i]] if i > 0 else j == arr[i]
+                dp[i][j] = dp[i][j] or prev
 
     return dp[-1][-1]
 
