@@ -124,12 +124,10 @@ def perfectSum(arr, k):
     for i in range(n):
         for j in range(k + 1):
             # Option 1: don't include arr[i]
-            dp[i][j] = dp[i - 1][j] if i > 0 else (1 if j == 0 else 0)
+            dp[i][j] = dp[i - 1][j]
             # Option 2: include arr[i] if possible
             if j >= arr[i]:
-                dp[i][j] += (
-                    dp[i - 1][j - arr[i]] if i > 0 else (1 if j == arr[i] else 0)
-                )
+                dp[i][j] += dp[i - 1][j - arr[i]]
 
     return dp[-1][-1]
 
@@ -141,3 +139,5 @@ print(perfectSum([5, 7, 8], 3))  # Output: 0
 print(perfectSum([35, 2, 8, 22], 0))  # Output: 1
 print(perfectSum([35, 2, 8, 22, 0], 2))  # Output: 2
 print(perfectSum([28, 4, 3, 27, 0, 24, 26], 24))  # Output: 2
+# Input: "0 1 2 2 2 3 0 3 0 1"
+print(perfectSum([0, 1, 2, 2, 2, 3, 0, 3, 0, 1], 1))  # Output: 16
