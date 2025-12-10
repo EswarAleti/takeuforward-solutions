@@ -26,6 +26,7 @@ def knapsack01(W, wt, val):
     Complexity:
         Time: O(2^n), Space: O(n) recursion depth
     """
+
     def recursion(i, rem_wt):
         # Base case: only first item available
         if i == 0:

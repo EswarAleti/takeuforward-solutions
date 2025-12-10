@@ -32,7 +32,6 @@ def coinChange(coins: List[int], amount: int) -> int:
         Time: O(amount * n) where n = len(coins)
         Space: O(amount) for DP array
     """
-    n = len(coins)
     # DP array: dp[i] = min coins needed to make amount i
     dp = [float("inf")] * (amount + 1)
     # Base case: 0 coins needed for amount 0
