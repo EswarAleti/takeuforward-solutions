@@ -32,6 +32,7 @@ def findTargetSumWays(nums: List[int], target: int) -> int:
     Complexity:
         Time: O(2^n), Space: O(n) recursion depth
     """
+
     def recursion(i, total):
         # Base case: only first element to process
         if i == 0:
