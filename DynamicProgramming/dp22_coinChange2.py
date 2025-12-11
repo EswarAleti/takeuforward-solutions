@@ -75,7 +75,6 @@ def change1D(amount: int, coins: List[int]) -> int:
         Time: O(n * amount) where n = len(coins)
         Space: O(amount) 1D DP array
     """
-    n = len(coins)
     # DP array: dp[j] = count of ways to make amount j
     dp = [0] * (amount + 1)
     # Base case: amount 0 can be made in 1 way
