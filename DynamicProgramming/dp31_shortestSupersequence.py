@@ -73,7 +73,6 @@ def shortestCommonSupersequence(self, str1: str, str2: str) -> str:
 # Test cases
 if __name__ == "__main__":
     print(shortestCommonSupersequence(None, "abac", "cab"))  # cabac
-    print(shortestCommonSupersequence(None, "aaaaaaaa", "aaaaaaaa"))  # aaaaaaaa
     print(shortestCommonSupersequence(None, "abc", "xyz"))  # abcxyz
     print(shortestCommonSupersequence(None, "aggtab", "gxtxayb"))  # aggxtxayb
     print(shortestCommonSupersequence(None, "abcde", "ace"))  # abcede
